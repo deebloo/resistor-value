@@ -1,5 +1,7 @@
 # ResistorValue
 
+https://resistor-58f07.firebaseapp.com/
+
 A PWA for calculating electrical resistor values.
 
 ## Development server
