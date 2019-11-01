@@ -1,9 +1,6 @@
 # ResistorValue
 
 A PWA for calculating electrical resistor values.
-a
-<img src="images/audit.png">
-<img src="images/screenshot.png" height="450">
 
 ## Development server
 
