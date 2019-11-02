@@ -34,7 +34,7 @@ interface SelectBandCountComponentState {
       }
 
       button {
-        background: #2196f3;
+        background: var(--color-primary);
         border: none;
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         padding: 1rem;

@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="theme-color" content="#004ba0" />
+    <meta name="theme-color" content="#1c313a" />
 
     <link rel="manifest" href="manifest.json" />
 
@@ -14,6 +14,12 @@
 
   <body>
     <style>
+      :root {
+        --color-primary: #455a64;
+        --color-dark: #1c313a;
+        --color-light: #718792;
+      }
+
       html,
       body {
         background: #f1f8fd;
@@ -31,7 +37,7 @@
       }
 
       header {
-        background: #2196f3;
+        background: var(--color-primary);
         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
         height: 4rem;
         margin-bottom: 1rem;
