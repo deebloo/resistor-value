@@ -41,10 +41,10 @@ export interface SelectBandColorComponentState {
       }
 
       .color-block {
+        border-radius: 10px;
         height: 2rem;
-        width: 2rem;
+        width: 5rem;
         display: inline-block;
-        border: solid 1px;
         margin-right: 1rem;
       }
     </style>
