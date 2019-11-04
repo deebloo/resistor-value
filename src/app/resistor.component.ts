@@ -73,7 +73,7 @@ import { ResistorBand } from './resistor.service';
       <section class="middle">
         ${state.map(band => {
           return html`
-            <div class="band" style="background: ${band.color}"></div>
+            <div class="band" .style="background: ${band.color}"></div>
           `;
         })}
       </section>

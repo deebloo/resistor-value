@@ -54,7 +54,7 @@ export interface SelectBandColorComponentState {
       ${state.bands.map(band => {
         return html`
           <button @click=${run('BAND_SELECTED', band)}>
-            <div class="color-block" style="background: ${band.color}"></div>
+            <div class="color-block" .style="background: ${band.color}"></div>
 
             <span>${band.color}</span>
           </button>
