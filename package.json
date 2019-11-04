@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ts-kit/di": "^3.0.0-alpha.11",
-    "@ts-kit/lit-framework": "^3.0.0-alpha.12",
+    "@ts-kit/di": "^3.0.0-alpha.13",
+    "@ts-kit/lit-framework": "^3.0.0-alpha.13",
     "lit-html": "^1.1.2"
   },
   "devDependencies": {
