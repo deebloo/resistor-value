@@ -141,7 +141,7 @@ export class AppComponent implements OnInit {
 
   @Handle('BAND_SELECTED') onBandSelected(e: CustomEvent<ResistorBand>): void {
     this.state.setState(state => {
-      if (state.selectedBands.length > state.bandLimit) {
+      if (state.selectedBands.length >= state.bandLimit) {
         return state;
       }
 

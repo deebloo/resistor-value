@@ -13,6 +13,10 @@
     "emitDecoratorMetadata": true,
     "types": ["jasmine", "node"],
     "typeRoots": [],
-    "declaration": false
+    "declaration": false,
+    "baseUrl": ".",
+    "paths": {
+      "lit-html": ["node_modules/lit-html"]
+    }
   }
 }
