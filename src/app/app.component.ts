@@ -140,18 +140,18 @@ export class AppComponent implements OnInit {
 
   @Handle('BAND_SELECTED') onBandSelected(e: CustomEvent<ResistorBand>): void {
     this.state.setState(state => {
-      if (state.selectedBands.length < state.bandLimit) {
-        const selectedBands = [...state.selectedBands, e.detail];
-
-        return {
-          ...state,
-          selectedBands,
-          availableBands: this.getAvailableBands(selectedBands, state.bandLimit),
-          resistorValue: this.resistor.getResistorValue(selectedBands, state.bandLimit)
-        };
+      if (state.selectedBands.length > state.bandLimit) {
+        return state;
       }
 
-      return state;
+      const selectedBands = [...state.selectedBands, e.detail];
+
+      return {
+        ...state,
+        selectedBands,
+        availableBands: this.getAvailableBands(selectedBands, state.bandLimit),
+        resistorValue: this.resistor.getResistorValue(selectedBands, state.bandLimit)
+      };
     });
   }
 
