@@ -2,7 +2,7 @@ import './select-band-count.component';
 import './resistor.component';
 import './select-band-color.component';
 
-import { Component, html, State, ComponentState, Handle } from '@ts-kit/lit-framework';
+import { Component, html, State, ComponentState, Handle, OnInit } from '@ts-kit/lit-framework';
 
 import { ResistorService, Resistor, ResistorBand } from './resistor.service';
 
@@ -49,6 +49,13 @@ export interface AppComponentState {
 
       .slide-up {
         animation: slide-up 0.2s;
+        transform: translateY(0);
+        display: block;
+      }
+
+      .slide-down {
+        animation: slide-down 0.2s;
+        transform: translateY(150%);
       }
 
       @keyframes slide-up {
@@ -60,15 +67,27 @@ export interface AppComponentState {
           transform: translateY(0);
         }
       }
+
+      @keyframes slide-down {
+        0% {
+          display: block;
+          transform: translateY(0);
+        }
+
+        100% {
+          display: none;
+          transform: translateY(100%);
+        }
+      }
     </style>
   `,
   template(state, run) {
     return html`
       <div class="value">
-        ${state.resistorValue
+        ${state.displayColors
           ? state.selectedBands.length < state.bandLimit
             ? html`
-                <span>calculating...</span>
+                <span>${state.selectedBands.length}/${state.bandLimit} Bands</span>
               `
             : html`
                 <span>${state.resistorValue} &#8486;</span>
@@ -81,29 +100,29 @@ export interface AppComponentState {
       <resistor-value .bands=${state.selectedBands}></resistor-value>
 
       <select-band-count
-        @band_count_selected=${run('BAND_COUNT_SELECTED')}
         .bandLimit=${state.bandLimit}
         .selectedBands=${state.selectedBands}
+        @band_count_selected=${run('BAND_COUNT_SELECTED')}
       ></select-band-count>
 
-      ${state.displayColors
-        ? html`
-            <select-band-color
-              class="${state.displayColors ? 'slide-up' : 'slide-down'}"
-              @band_selected=${run('BAND_SELECTED')}
-              .bands=${state.availableBands}
-            ></select-band-color>
-          `
-        : ''}
+      <select-band-color
+        class="${state.displayColors ? 'slide-up' : 'slide-down'}"
+        .bands=${state.availableBands}
+        @band_selected=${run('BAND_SELECTED')}
+      ></select-band-color>
     `;
   }
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(
     @Resistor() private resistor: ResistorService,
     @State() private state: ComponentState<AppComponentState>
-  ) {
-    state.setState(state => ({ ...state, bands: resistor.getResistorBands() }));
+  ) {}
+
+  onInit() {
+    const bands = this.resistor.getResistorBands();
+
+    this.state.setState(state => ({ ...state, bands }));
   }
 
   @Handle('BAND_COUNT_SELECTED') onBandCountSelected(e: CustomEvent<number>): void {

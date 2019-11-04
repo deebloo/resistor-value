@@ -82,9 +82,7 @@ interface SelectBandCountComponentState {
     return html`
       ${state.bandLimit
         ? html`
-            <button class="scale-in" @click=${run('BAND_SELECTED', 0)}>
-              ${state.selectedBands.length} / ${state.bandLimit} bands
-            </button>
+            <button class="scale-in" @click=${run('BAND_SELECTED', 0)}>clear</button>
           `
         : html`
             <div class="band-buttons scale-in">
