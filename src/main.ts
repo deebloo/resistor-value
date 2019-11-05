@@ -1,6 +1,6 @@
 import './app/app.component';
 
-import { bootstrapApplication } from '@ts-kit/lit-framework';
+import { bootstrapApplication } from '@lit-kit/component';
 
 bootstrapApplication(); // only needed if you want singleton providers
 

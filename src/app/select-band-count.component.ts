@@ -6,7 +6,7 @@ import {
   State,
   ComponentState,
   OnPropChanges
-} from '@ts-kit/lit-framework';
+} from '@lit-kit/component';
 import { html } from 'lit-html';
 
 import { ResistorBand } from './resistor.service';

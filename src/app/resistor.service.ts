@@ -1,4 +1,4 @@
-import { RootService, Inject } from '@ts-kit/di';
+import { RootService, Inject } from '@lit-kit/di';
 
 export enum ResistorBandColor {
   Black = 'black',

@@ -2,7 +2,7 @@ import './select-band-count.component';
 import './resistor.component';
 import './select-band-color.component';
 
-import { Component, State, ComponentState, Handle, OnInit } from '@ts-kit/lit-framework';
+import { Component, State, ComponentState, Handle, OnInit } from '@lit-kit/component';
 import { html } from 'lit-html';
 
 import { ResistorService, Resistor, ResistorBand } from './resistor.service';

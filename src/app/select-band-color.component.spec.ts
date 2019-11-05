@@ -1,4 +1,4 @@
-import { createComponent, ElementInstance } from '@ts-kit/lit-framework';
+import { createComponent, ElementInstance } from '@lit-kit/component';
 
 import {
   SelectBandColorComponent,

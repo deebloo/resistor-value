@@ -1,4 +1,4 @@
-import { Component, Prop, State, ComponentState, OnPropChanges } from '@ts-kit/lit-framework';
+import { Component, Prop, State, ComponentState, OnPropChanges } from '@lit-kit/component';
 import { html } from 'lit-html';
 
 import { ResistorBand } from './resistor.service';
