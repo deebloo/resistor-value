@@ -8,6 +8,9 @@
     "test": "karma start",
     "build": "NODE_ENV=production webpack && gzip dist/*.js --keep"
   },
+  "repository": {
+    "url": "git@github.com:deebloo/resistor-value.git"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -21,7 +24,7 @@
     "copy-webpack-plugin": "^5.0.4",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^3.0.3",
-    "jasmine": "^3.5.0",
+    "jasmine-core": "^3.5.0",
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
     "karma-cli": "^2.0.0",
