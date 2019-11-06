@@ -72,7 +72,7 @@ export class SelectBandColorComponent implements OnPropChanges, SelectBandColorC
   ) {}
 
   onPropChanges() {
-    this.state.setState(() => ({ bands: this.bands }));
+    this.state.setState({ bands: this.bands });
   }
 
   @Handle('BAND_SELECTED') onBandSelected(_: Event, detail: number) {

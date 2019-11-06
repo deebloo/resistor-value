@@ -104,10 +104,10 @@ export class SelectBandCountComponent implements OnPropChanges, SelectBandCountC
   ) {}
 
   onPropChanges() {
-    this.state.setState(() => ({
+    this.state.setState({
       bandLimit: this.bandLimit,
       selectedBands: this.selectedBands
-    }));
+    });
   }
 
   @Handle('BAND_SELECTED') onBandSelected(_: Event, detail: number) {

@@ -89,6 +89,6 @@ export class ResistorComponent implements OnPropChanges {
   constructor(@State() private state: ComponentState<ResistorBand[]>) {}
 
   onPropChanges() {
-    this.state.setState(() => this.bands);
+    this.state.setState(this.bands);
   }
 }

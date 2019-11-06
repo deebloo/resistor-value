@@ -123,36 +123,34 @@ export class AppComponent implements OnInit {
   onInit() {
     const bands = this.resistor.getResistorBands();
 
-    this.state.setState(state => ({ ...state, bands }));
+    this.state.setState({ ...this.state.value, bands });
   }
 
   @Handle('BAND_COUNT_SELECTED') onBandCountSelected(e: CustomEvent<number>): void {
     const bandLimit = e.detail;
 
-    this.state.setState(state => ({
-      ...state,
+    this.state.setState({
+      ...this.state.value,
       selectedBands: [],
       resistorValue: undefined,
       bandLimit,
       displayColors: bandLimit > 0,
       availableBands: this.getAvailableBands([], bandLimit)
-    }));
+    });
   }
 
   @Handle('BAND_SELECTED') onBandSelected(e: CustomEvent<ResistorBand>): void {
-    this.state.setState(state => {
-      if (state.selectedBands.length >= state.bandLimit) {
-        return state;
-      }
+    if (this.state.value.selectedBands.length >= this.state.value.bandLimit) {
+      return void 0;
+    }
 
-      const selectedBands = [...state.selectedBands, e.detail];
+    const selectedBands = [...this.state.value.selectedBands, e.detail];
 
-      return {
-        ...state,
-        selectedBands,
-        availableBands: this.getAvailableBands(selectedBands, state.bandLimit),
-        resistorValue: this.resistor.getResistorValue(selectedBands, state.bandLimit)
-      };
+    this.state.setState({
+      ...this.state.value,
+      selectedBands,
+      availableBands: this.getAvailableBands(selectedBands, this.state.value.bandLimit),
+      resistorValue: this.resistor.getResistorValue(selectedBands, this.state.value.bandLimit)
     });
   }
 
