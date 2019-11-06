@@ -1,4 +1,4 @@
-import { RootService, Inject } from '@lit-kit/di';
+import { Service, Inject } from '@lit-kit/di';
 
 export enum ResistorBandColor {
   Black = 'black',
@@ -24,7 +24,7 @@ export interface ResistorBand {
 
 export const Resistor = () => (c: any, k: any, i: any) => Inject(ResistorService)(c, k, i);
 
-@RootService()
+@Service()
 export class ResistorService {
   private readonly bands: ResistorBand[] = [
     {

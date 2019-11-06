@@ -6,7 +6,7 @@ describe('Text Component', () => {
   let el: ElementInstance<AppComponentState>;
 
   beforeEach(() => {
-    el = createComponent<AppComponentState, AppComponent>(AppComponent);
+    el = createComponent<AppComponentState>(AppComponent);
   });
 
   it('should work', () => {

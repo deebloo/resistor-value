@@ -9,9 +9,7 @@ describe('SelectBandColorComponent', () => {
   let el: ElementInstance<SelectBandColorComponentState>;
 
   beforeEach(() => {
-    el = createComponent<SelectBandColorComponentState, SelectBandColorComponent>(
-      SelectBandColorComponent
-    );
+    el = createComponent<SelectBandColorComponentState>(SelectBandColorComponent);
   });
 
   it('should work', () => {
