@@ -4,18 +4,18 @@ import {
   Handle,
   Prop,
   State,
-  ComponentState,
+  CompState,
   OnPropChanges
 } from '@lit-kit/component';
 import { html } from 'lit-html';
 
 import { ResistorBand } from './resistor.service';
 
-export interface SelectBandColorComponentState {
+export interface SelectBandColorCompState {
   bands: ResistorBand[];
 }
 
-@Component<SelectBandColorComponentState>({
+@Component<SelectBandColorCompState>({
   tag: 'select-band-color',
   defaultState: { bands: [] },
   style: html`
@@ -63,12 +63,12 @@ export interface SelectBandColorComponentState {
     `;
   }
 })
-export class SelectBandColorComponent implements OnPropChanges, SelectBandColorComponentState {
+export class SelectBandColorComponent implements OnPropChanges, SelectBandColorCompState {
   @Prop() bands: ResistorBand[] = [];
 
   constructor(
     @ElRef() private elRef: HTMLElement,
-    @State() private state: ComponentState<SelectBandColorComponentState>
+    @State() private state: CompState<SelectBandColorCompState>
   ) {}
 
   onPropChanges() {

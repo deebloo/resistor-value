@@ -4,19 +4,19 @@ import {
   Handle,
   Prop,
   State,
-  ComponentState,
+  CompState,
   OnPropChanges
 } from '@lit-kit/component';
 import { html } from 'lit-html';
 
 import { ResistorBand } from './resistor.service';
 
-interface SelectBandCountComponentState {
+interface SelectBandCountCompState {
   bandLimit: number;
   selectedBands: ResistorBand[];
 }
 
-@Component<SelectBandCountComponentState>({
+@Component<SelectBandCountCompState>({
   tag: 'select-band-count',
   defaultState: { bandLimit: 0, selectedBands: [] },
   style: html`
@@ -94,13 +94,13 @@ interface SelectBandCountComponentState {
     `;
   }
 })
-export class SelectBandCountComponent implements OnPropChanges, SelectBandCountComponentState {
+export class SelectBandCountComponent implements OnPropChanges, SelectBandCountCompState {
   @Prop() bandLimit!: number;
   @Prop() selectedBands: ResistorBand[] = [];
 
   constructor(
     @ElRef() private elRef: HTMLElement,
-    @State() private state: ComponentState<SelectBandCountComponentState>
+    @State() private state: CompState<SelectBandCountCompState>
   ) {}
 
   onPropChanges() {

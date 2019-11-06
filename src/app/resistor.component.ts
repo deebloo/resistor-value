@@ -1,4 +1,4 @@
-import { Component, Prop, State, ComponentState, OnPropChanges } from '@lit-kit/component';
+import { Component, Prop, State, CompState, OnPropChanges } from '@lit-kit/component';
 import { html } from 'lit-html';
 
 import { ResistorBand } from './resistor.service';
@@ -86,7 +86,7 @@ import { ResistorBand } from './resistor.service';
 export class ResistorComponent implements OnPropChanges {
   @Prop() bands: ResistorBand[] = [];
 
-  constructor(@State() private state: ComponentState<ResistorBand[]>) {}
+  constructor(@State() private state: CompState<ResistorBand[]>) {}
 
   onPropChanges() {
     this.state.setState(this.bands);

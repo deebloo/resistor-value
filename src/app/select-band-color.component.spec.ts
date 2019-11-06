@@ -1,15 +1,12 @@
 import { createComponent, ElementInstance } from '@lit-kit/component';
 
-import {
-  SelectBandColorComponent,
-  SelectBandColorComponentState
-} from './select-band-color.component';
+import { SelectBandColorComponent, SelectBandColorCompState } from './select-band-color.component';
 
 describe('SelectBandColorComponent', () => {
-  let el: ElementInstance<SelectBandColorComponentState>;
+  let el: ElementInstance<SelectBandColorCompState>;
 
   beforeEach(() => {
-    el = createComponent<SelectBandColorComponentState>(SelectBandColorComponent);
+    el = createComponent<SelectBandColorCompState>(SelectBandColorComponent);
   });
 
   it('should work', () => {

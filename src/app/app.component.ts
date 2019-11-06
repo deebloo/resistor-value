@@ -2,12 +2,12 @@ import './select-band-count.component';
 import './resistor.component';
 import './select-band-color.component';
 
-import { Component, State, ComponentState, Handle, OnInit } from '@lit-kit/component';
+import { Component, State, CompState, Handle, OnInit } from '@lit-kit/component';
 import { html } from 'lit-html';
 
 import { ResistorService, Resistor, ResistorBand } from './resistor.service';
 
-export interface AppComponentState {
+export interface AppCompState {
   bands: ResistorBand[];
   selectedBands: ResistorBand[];
   availableBands: ResistorBand[];
@@ -16,7 +16,7 @@ export interface AppComponentState {
   resistorValue?: string;
 }
 
-@Component<AppComponentState>({
+@Component<AppCompState>({
   tag: 'app-root',
   defaultState: {
     bandLimit: 0,
@@ -117,7 +117,7 @@ export interface AppComponentState {
 export class AppComponent implements OnInit {
   constructor(
     @Resistor() private resistor: ResistorService,
-    @State() private state: ComponentState<AppComponentState>
+    @State() private state: CompState<AppCompState>
   ) {}
 
   onInit() {
